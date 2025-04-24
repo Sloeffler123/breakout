@@ -3,9 +3,9 @@ class PlayerBlock(Turtle):
     def __init__(self):
         super().__init__()
         self.penup()
-        self.color('lightblue')
+        self.color('blue')
         self.shape('square')
-        self.shapesize(stretch_wid=1, stretch_len=5)
+        self.shapesize(1, 3)
         self.speed(0)
         self.goto(0, -310)
         self.lives = 3

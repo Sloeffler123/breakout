@@ -25,7 +25,7 @@ class Ball(Turtle):
         location_x = self.xcor()
         if location_x >= 385 or location_x <= -385:
             self.x *= -1
-        if location_y >= 485:
+        if location_y >= 370:
             self.y *= -1
     def paddle_collision(self):
         self.y *= -1 
@@ -35,9 +35,10 @@ class Ball(Turtle):
         self.penup()  
         self.color('white')
         self.shapesize(0.5, 0.5)
-        self.goto(0, -250)
-        self.speed = 2
         self.setheading(90)
+        self.goto(0, -250)
+        self.y *= -1
+        self.speed = 2
           
 
         
