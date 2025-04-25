@@ -1,7 +1,7 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from player import PlayerBlock
 from ball import Ball
-from blocks import red_blocks, orange_blocks, yellow_blocks, green_blocks
+from blocks import generate_blocks
 from borders import Border
 from score import Score
 import time
@@ -22,13 +22,8 @@ border_top = Border(0, 370, 1, 40)
 
 screen.onkeypress(fun=player.move_right, key='d')
 screen.onkeypress(fun=player.move_left, key='a')
-screen.onkeyrelease(fun=player.move_right, key='d')
-screen.onkeyrelease(fun=player.move_left, key='a')
 
-red_blocks()
-orange_blocks()
-yellow_blocks()
-green_blocks()
+blocks_list = generate_blocks()
 
 screen.listen()
 #Main loop
@@ -43,6 +38,11 @@ while on:
     if ball.ycor() <= -485:
         player.lives -= 1    
         ball.ball_reset()
-    
+    for block in blocks_list:
+        if ball.distance(block) < 30:
+            blocks_list.remove(block)
+            block.delete()
+            ball.paddle_collision()    
+
 screen.exitonclick()
     

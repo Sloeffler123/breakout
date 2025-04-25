@@ -1,8 +1,9 @@
 from turtle import Turtle
 
 class Blocks(Turtle):
-    def __init__(self, color, x, y):
+    def __init__(self, color, x, y, id):
         super().__init__()
+        self.id = id
         self.y = y
         self.x = x
         self.color(color)
@@ -12,61 +13,58 @@ class Blocks(Turtle):
         self.speed(1)
         self.goto(self.x, self.y)
 
-#need to make an id for each block object made and store every obect in one list. so when the ball hits a block i iterate over reversed list looking for the id and deleting that block
-def red_blocks():
-    red_block_lst = []
+    def delete(self):
+        self.clear()
+
+def generate_blocks():
+    blocks_lst = []
+
     x = -420
-    for i in range(11):
+    for i in range(1, 12):
         x += 70
-        block = Blocks('red', x, 260)
-        red_block_lst.append(block)
-    j = -420    
-    for i in range(11):
-        j += 70
-        block = Blocks('red', j, 230)
-        red_block_lst.append(block)
-   
-def orange_blocks():
-    orange_blocks_lst = []  
-    x = -420
-    for i in range(11):
+        block = Blocks('red', x, 260, i)
+        blocks_lst.append(block)
+
+    x = -420   
+    for i in range(12, 23):
         x += 70
-        block = Blocks('orange', x, 200)
-        orange_blocks_lst.append(block)
-    j = -420    
-    for i in range(11):
-        j += 70
-        block = Blocks('orange', j, 170)
-        orange_blocks_lst.append(block)
-       
-def yellow_blocks():
-    yellow_blocks_lst = [] 
-    x = -420
-    for i in range(11):
+        block = Blocks('red', x, 230, i)
+        blocks_lst.append(block)
+
+    x = -420 
+    for i in range(23, 34):
         x += 70
-        block = Blocks('yellow', x, 140)
-        yellow_blocks_lst.append(block)
-    j = -420    
-    for i in range(11):
-        j += 70
-        block = Blocks('yellow', j, 110)
-        yellow_blocks_lst.append(block)
-       
-def green_blocks():
-    green_blocks_lst = [] 
-    x = -420
-    for i in range(11):
+        block = Blocks('orange', x, 200, i)
+        blocks_lst.append(block)
+
+    x = -420    
+    for i in range(34, 45):
         x += 70
-        block = Blocks('green', x, 80)
-        green_blocks_lst.append(block)
-    j = -420    
-    for i in range(11):
-        j += 70
-        block = Blocks('green', j, 50)
-        green_blocks_lst.append(block)
+        block = Blocks('orange', x, 170, i)
+        blocks_lst.append(block)
 
+    x = -420    
+    for i in range(45, 56):
+        x += 70
+        block = Blocks('yellow', x, 140, i)
+        blocks_lst.append(block)
 
+    x = -420    
+    for i in range(56, 67):
+        x += 70
+        block = Blocks('yellow', x, 110, i)
+        blocks_lst.append(block)
 
+    x = -420    
+    for i in range(67, 78):
+        x += 70
+        block = Blocks('green', x, 80, i)
+        blocks_lst.append(block)
 
+    x = -420    
+    for i in range(78, 89):
+        x += 70
+        block = Blocks('green', x, 50, i)
+        blocks_lst.append(block)
 
-
+    return blocks_lst
