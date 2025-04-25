@@ -12,12 +12,13 @@ class Ball(Turtle):
         self.shapesize(stretch_wid=0.5, stretch_len=0.5)
         self.goto(0,-250)
         self.setheading(ran_num)
-        self.speed = 2
+        self.move_speed = 0.02
         self.x = 2
         self.y = 2
+
     def ball_movement(self):
         new_x = self.xcor() + self.x
-        new_y = self.ycor() + self.y
+        new_y = self.ycor() + self.y 
         self.goto(new_x, new_y)
 
     def collision_wall(self):    
@@ -27,8 +28,12 @@ class Ball(Turtle):
             self.x *= -1
         if location_y >= 370:
             self.y *= -1
+
     def paddle_collision(self):
         self.y *= -1 
+    
+    def block_collision(self):
+        self.move_speed *= 0.095
 
     def ball_reset(self):
         self.reset()
@@ -37,9 +42,6 @@ class Ball(Turtle):
         self.shapesize(0.5, 0.5)
         self.setheading(90)
         self.goto(0, -250)
+        self.move_speed = 0.02
         self.y *= -1
-        self.speed = 2
-          
-
-        
     

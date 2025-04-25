@@ -5,26 +5,28 @@ class PlayerBlock(Turtle):
         self.penup()
         self.color('blue')
         self.shape('square')
-        self.shapesize(1, 3)
+        self.shapesize(1, 4)
         self.speed(0)
         self.goto(0, -310)
-        self.lives = 3
+
     def move_right(self):
         if self.check_boundry_right() != True:
             self.setheading(0)
             self.forward(7)
+
     def move_left(self):
         if self.check_boundry_left() != True:
             self.setheading(180)
             self.forward(7)
+
     def check_boundry_left(self):
         location_x = self.xcor()
         if location_x <= -340: 
             return True  
         return False    
+    
     def check_boundry_right(self):
         location_x = self.xcor()
         if location_x >= 340:
             return True     
         return False   
-    

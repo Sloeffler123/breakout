@@ -13,9 +13,6 @@ class Blocks(Turtle):
         self.speed(1)
         self.goto(self.x, self.y)
 
-    def delete(self):
-        self.clear()
-
 def generate_blocks():
     blocks_lst = []
 
