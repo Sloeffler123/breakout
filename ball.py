@@ -12,7 +12,7 @@ class Ball(Turtle):
         self.shapesize(stretch_wid=0.5, stretch_len=0.5)
         self.goto(0,-250)
         self.setheading(ran_num)
-        self.move_speed = 0.02
+        self.move_speed = 0.01
         self.x = 2
         self.y = 2
 
@@ -33,7 +33,7 @@ class Ball(Turtle):
         self.y *= -1 
     
     def block_collision(self):
-        self.move_speed *= 0.095
+        self.move_speed *= 0.9
 
     def ball_reset(self):
         self.reset()
@@ -42,6 +42,6 @@ class Ball(Turtle):
         self.shapesize(0.5, 0.5)
         self.setheading(90)
         self.goto(0, -250)
-        self.move_speed = 0.02
+        self.move_speed = 0.01
         self.y *= -1
     

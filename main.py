@@ -57,5 +57,8 @@ while on:
             blocks_list.remove(block)
             block.hideturtle()
             ball.paddle_collision()   
+        if len(blocks_list) == 0:
+            score.winner()
+            on = False    
 
 screen.exitonclick()

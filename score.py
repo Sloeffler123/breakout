@@ -16,5 +16,7 @@ class Score(Turtle):
         self.goto(0, 400)
         self.write(arg=f'Score: {self.score}', align='center', font=('Courier', 20, 'normal'))
         self.score += 10
-
-                
+    def winner(self):
+        self.clear()
+        self.goto(0, 400)
+        self.write(arg='YOU ARE A WINNER', align='Center', font=('Courier', 20, 'normal'))
